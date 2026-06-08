@@ -105,7 +105,7 @@ async function handleAddNote() {
     showToast(error.message, true);
   } finally {
     button.disabled = false;
-    button.textContent = "Add note";
+    button.textContent = "Enter";
   }
 }
 
