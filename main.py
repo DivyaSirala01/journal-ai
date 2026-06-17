@@ -29,7 +29,11 @@ def read_root() -> dict:
 #FETCH ALL NOTES
 @app.get("/notes", response_model=NotesResponse)
 def get_all_note(db: Session = Depends(get_db)) -> NotesResponse:
-    notes = db.query(NoteDB).all()
+    notes = (
+        db.query(NoteDB)
+        .order_by(NoteDB.created_on.desc())
+        .all()
+        )
     return NotesResponse(total_notes=len(notes), notes=notes)
 
 #FETCH - SINGLE NOTE
