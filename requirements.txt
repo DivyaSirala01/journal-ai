@@ -5,3 +5,4 @@ langchain-openai
 uvicorn
 pytest
 httpx
+ruff

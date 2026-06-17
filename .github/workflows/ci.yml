@@ -35,6 +35,11 @@ jobs:
       - name: Validate Python syntax
         run: python -m compileall .
 
+      - name: Lint test files
+        run: |
+          ruff check tests/test_health.py
+          ruff format --check tests/test_health.py
+
       - name: Run backend tests
         run: pytest -q
 
