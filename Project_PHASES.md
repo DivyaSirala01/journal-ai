@@ -73,6 +73,7 @@ Journal Entry
 Summary
 Category
 Sentiment
+
 Step 5
 
 Add embeddings.
