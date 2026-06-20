@@ -66,3 +66,23 @@ jobs:
 
       - name: Build frontend
         run: npm run build
+
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    needs:
+      - backend
+      - frontend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build backend image
+        run: docker build -t todo-ai-backend .
+
+      - name: Build frontend image
+        run: docker build -t todo-ai-frontend ./frontend
+
+      - name: Validate compose config
+        run: docker compose config
